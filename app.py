@@ -8,7 +8,7 @@ def home():
     
 @app.route("/status")
 def status():
-    return "Server Running Perfectly"
+    return "Server Running Perfectly ,u can use your project"
 
 if __name__ == "__main__":
     app.run(port=5123)

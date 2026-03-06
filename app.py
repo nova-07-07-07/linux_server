@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "server running"
+    return "server running , ok 🔮"
     
 @app.route("/status")
 def status():

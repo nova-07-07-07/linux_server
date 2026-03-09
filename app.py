@@ -6,7 +6,7 @@ CORS(app)
 
 @app.route("/")
 def home():
-    return "server running , ok 🔮 1234 5678 91011 1213"
+    return "server running , ok 🔮 1234 5678 91011 1213 1415"
      
 @app.route("/status")
 def status():

@@ -4,8 +4,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "server running , ok 🔮"
-    
+    return "server running , ok 🔮 1234"
+     
 @app.route("/status")
 def status():
     return "Server Running Perfectly ,u can use your project"

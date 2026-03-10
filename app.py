@@ -44,6 +44,7 @@ def home():
             <h1>💧 JSS Water Service</h1>
             <p>Server Status : Running ✅</p>
             <p>Version : 1.0</p>
+            
             <p>App ID : 1234-5678</p>
 
             <a class="btn" href="/download">⬇ Download APK</a>

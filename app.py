@@ -47,7 +47,7 @@ def home():
             
             <p>App ID : 1234-5678</p>
 
-            <a class="btn" href="/download">⬇ Download APK</a>
+            <a class="btn" href="/static/jss_water_service.apk">⬇ Download APK</a>
         </div>
 
     </body>

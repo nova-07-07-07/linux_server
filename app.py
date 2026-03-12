@@ -4,6 +4,11 @@ from routers import user_bp
 from db import init_db
 from routers.user import user_bp
 from routers.admin import admin_bp
+import subprocess
+
+# install requirements.txt
+# pip install -r requirements.txt
+subprocess.call(["pip", "install", "-r", "requirements.txt"])
 
 app = Flask(__name__)
 CORS(app)

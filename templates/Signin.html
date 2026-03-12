@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>User Signin</title>
+
+<style>
+body{
+font-family:Arial, sans-serif;
+background:#f2f6ff;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+margin:0;
+}
+
+.box{
+background:white;
+width:360px;
+padding:30px;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+text-align:center;
+}
+
+h2{
+margin-bottom:20px;
+color:#1b4fff;
+}
+
+input{
+width:100%;
+padding:10px;
+margin:8px 0;
+border:1px solid #ccc;
+border-radius:6px;
+box-sizing:border-box;
+font-size:14px;
+}
+
+.otp-row{
+display:flex;
+gap:8px;
+align-items: center;
+justify-content: center;
+}
+
+.otp-row input{
+flex:1;
+}
+
+button{
+padding:10px;
+background:#1b4fff;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-size:14px;
+}
+
+button:hover{
+background:#163bd6;
+}
+
+#msg{
+margin-top:15px;
+font-size:14px;
+color:#444;
+}
+
+.otpbtn{
+    height: 40px;
+    background-color: rgb(118, 176, 31);
+}
+
+.otpbtn:hover{
+    background-color: rgb(94, 134, 24);
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+<h2>User Register</h2>
+
+<input id="mob_no" placeholder="Mobile Number"><br>
+<input id="name" placeholder="Name"><br>
+<div class="otp-row">
+<input id="otp" placeholder="OTP">
+<button class="otpbtn" onclick="sendOtp()">Send OTP</button>
+</div>
+
+<button  onclick="register()">Register</button>
+
+<p id="msg"></p>
+</div>
+
+<script>
+
+function sendOtp(){
+    let data={
+        mob_no:document.getElementById("mob_no").value
+    };
+    try {
+        fetch("/routers/user/sendOtp",{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify(data)
+    })
+   .then(r=>r.json())
+   .then(d=>{
+        document.getElementById("msg").innerText=JSON.stringify(d.message);
+    });
+    } catch (error) {
+        document.getElementById("msg").innerText="Server Error";
+    }
+    
+}
+
+function register(){
+
+let data={
+name:document.getElementById("name").value,
+mob_no:document.getElementById("mob_no").value,
+otp:document.getElementById("otp").value
+};
+
+fetch("/routers/user/register",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify(data)
+})
+.then(r=>r.json())
+.then(d=>{
+document.getElementById("msg").innerText=JSON.stringify(d);
+});
+
+}
+
+</script>
+
+</body>
+</html>
